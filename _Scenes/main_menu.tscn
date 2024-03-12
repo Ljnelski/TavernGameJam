@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cywvs0vvh8ffx"]
 
-[ext_resource type="StyleBox" uid="uid://ctr18vwqvswjq" path="res://panelStyle.tres" id="1_ws454"]
-[ext_resource type="StyleBox" uid="uid://dyunao670nd0n" path="res://Button.tres" id="2_utfl6"]
-[ext_resource type="StyleBox" uid="uid://5v0aox02y4qa" path="res://ButtonHover.tres" id="3_hddx5"]
-[ext_resource type="Script" path="res://_Scripts/Quit.cs" id="4_4rf2a"]
+[ext_resource type="Script" path="res://_Scripts/Quit.cs" id="1_qik4f"]
+[ext_resource type="StyleBox" uid="uid://ctr18vwqvswjq" path="res://panelStyle.tres" id="2_t7gmp"]
+[ext_resource type="StyleBox" uid="uid://dyunao670nd0n" path="res://Button.tres" id="3_mb07p"]
+[ext_resource type="StyleBox" uid="uid://5v0aox02y4qa" path="res://ButtonHover.tres" id="4_mwky6"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("4_4rf2a")
+script = ExtResource("1_qik4f")
 
 [node name="TitleContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -28,7 +28,7 @@ size_flags_vertical = 3
 
 [node name="Title" type="Panel" parent="TitleContainer"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("1_ws454")
+theme_override_styles/panel = ExtResource("2_t7gmp")
 
 [node name="Label" type="Label" parent="TitleContainer/Title"]
 layout_mode = 1
@@ -62,8 +62,8 @@ size_flags_vertical = 3
 [node name="PlayButton" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = ExtResource("2_utfl6")
-theme_override_styles/hover = ExtResource("3_hddx5")
+theme_override_styles/normal = ExtResource("3_mb07p")
+theme_override_styles/hover = ExtResource("4_mwky6")
 text = "Play
 "
 
@@ -74,8 +74,8 @@ layout_mode = 2
 [node name="QuitButton" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = ExtResource("2_utfl6")
-theme_override_styles/hover = ExtResource("3_hddx5")
+theme_override_styles/normal = ExtResource("3_mb07p")
+theme_override_styles/hover = ExtResource("4_mwky6")
 text = "Quit
 "
 
