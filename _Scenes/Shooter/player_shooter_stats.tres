@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShooterStats" load_steps=2 format=3 uid="uid://dn33o21pukrdh"]
+
+[ext_resource type="Script" path="res://_Scenes/Shooter/shooter_stats.gd" id="1_x2wmc"]
+
+[resource]
+script = ExtResource("1_x2wmc")
+firerate_level = 1
+damage_level = 1
+speed_level = 1
+bullet_count_level = 2

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwdsqj0soiio2"]
+
+[ext_resource type="Script" path="res://_Scenes/PowerUp/power_up.gd" id="1_gemvt"]
+[ext_resource type="Script" path="res://_Scenes/Shooter/shooter_stats.gd" id="2_k6h04"]
+
+[sub_resource type="Resource" id="Resource_qp4pm"]
+script = ExtResource("2_k6h04")
+firerate_level = 1
+damage_level = 1
+speed_level = 1
+bullet_count_level = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_hlmp8"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5ydme"]
+radius = 0.1
+
+[node name="PowerUp" type="Node3D"]
+script = ExtResource("1_gemvt")
+power_up_stats = SubResource("Resource_qp4pm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_hlmp8")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_5ydme")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
