@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var speed = 14;
 
-@onready var shooter = $Pivot/Shooter;
+@onready var shooter = $Pivot/Gun/Shooter;
 
 var target_velocity = Vector3.ZERO;
 

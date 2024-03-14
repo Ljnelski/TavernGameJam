@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwdsqj0soiio2"]
+[gd_scene load_steps=7 format=3 uid="uid://cwdsqj0soiio2"]
 
 [ext_resource type="Script" path="res://_Scenes/PowerUp/power_up.gd" id="1_gemvt"]
 [ext_resource type="Script" path="res://_Scenes/Shooter/shooter_stats.gd" id="2_k6h04"]
@@ -9,10 +9,17 @@ firerate_level = 1
 damage_level = 1
 speed_level = 1
 bullet_count_level = 1
+firerate_level_values = Array[float]([])
+damage_level_values = Array[float]([])
+speed_level_values = Array[float]([])
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5wx3"]
+albedo_color = Color(0.423529, 1, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_hlmp8"]
-radius = 0.1
-height = 0.2
+material = SubResource("StandardMaterial3D_d5wx3")
+radius = 0.15
+height = 0.3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5ydme"]
 radius = 0.1

@@ -4,7 +4,10 @@
 
 [resource]
 script = ExtResource("1_x2wmc")
-firerate_level = 1
-damage_level = 1
-speed_level = 1
-bullet_count_level = 2
+firerate_level = 0
+damage_level = 0
+speed_level = 0
+bullet_count_level = 0
+firerate_level_values = Array[float]([0.5, 0.25, 0.1])
+damage_level_values = Array[float]([1.0, 1.25, 1.5])
+speed_level_values = Array[float]([4.0, 5.0, 6.0])
