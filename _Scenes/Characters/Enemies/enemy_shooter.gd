@@ -3,7 +3,7 @@ class_name EnemyShooter extends State
 @export var fire_rate : float = 0.75;
 
 func enter():
-	$"../../Pivot/Shooter".can_shoot = true;		
+	$"../../Pivot/Gun/Shooter".can_shoot = true;		
 	pass
 	
 func update():

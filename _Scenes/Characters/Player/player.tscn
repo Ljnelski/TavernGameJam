@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://8lwga80qie8l"]
+[gd_scene load_steps=8 format=3 uid="uid://8lwga80qie8l"]
 
 [ext_resource type="Script" path="res://_Scenes/Characters/Player/player.gd" id="1_0npxq"]
 [ext_resource type="PackedScene" uid="uid://bj3n02g7ydtts" path="res://_Scenes/Shooter/shooter.tscn" id="1_g2fjg"]
 [ext_resource type="PackedScene" uid="uid://ffe8bjjg3xuf" path="res://Assets/Plane.glb" id="1_qxloq"]
 [ext_resource type="PackedScene" uid="uid://ckpffkeelu4ib" path="res://_Scenes/Shooter/bullet_spawn.tscn" id="3_mvets"]
+[ext_resource type="PackedScene" uid="uid://bh8hiktxbagkl" path="res://_Scenes/Characters/Health.tscn" id="5_5f5pd"]
+[ext_resource type="Shape3D" uid="uid://c5sc7e8uetvmp" path="res://_Scenes/Characters/Player/player_collider.tres" id="5_gm0cj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_onsxl"]
 
@@ -37,7 +39,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.483, 0.338, -0.108)
 [node name="bullet_spawn_5" parent="Pivot/Gun/Pattern" instance=ExtResource("3_mvets")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4829, 0.338196, -0.107982)
 
+[node name="Hitbox" type="Area3D" parent="Pivot"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03459, 0.503302, 0.127057)
+shape = ExtResource("5_gm0cj")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_onsxl")
+
+[node name="Health" parent="." node_paths=PackedStringArray("hit_box") instance=ExtResource("5_5f5pd")]
+hit_box = NodePath("../Pivot/Hitbox")
 
 [connection signal="property_list_changed" from="Pivot/Gun/Shooter" to="Pivot/Gun/Shooter" method="_on_property_list_changed"]

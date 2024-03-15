@@ -37,7 +37,6 @@ func _process(delta):
 
 func shoot():
 	for n in bullet_count:
-		print("spawning bullet");
 		var bullet_spawn = bullet_spawns[n];
 		instance = bullet.instantiate();	
 			
