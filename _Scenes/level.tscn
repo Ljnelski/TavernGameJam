@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cn3gkv5bfqxmp"]
+[gd_scene load_steps=9 format=3 uid="uid://cn3gkv5bfqxmp"]
 
-[ext_resource type="PackedScene" uid="uid://8lwga80qie8l" path="res://_Scenes/Player/player.tscn" id="1_6it2u"]
+[ext_resource type="PackedScene" uid="uid://8lwga80qie8l" path="res://_Scenes/Characters/Player/player.tscn" id="1_6it2u"]
 [ext_resource type="PackedScene" uid="uid://cwdsqj0soiio2" path="res://_Scenes/PowerUp/PowerUp.tscn" id="3_52n7x"]
+[ext_resource type="PackedScene" uid="uid://0pj142for13" path="res://_Scenes/Characters/Enemies/basic_enemy.tscn" id="3_sm4vr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gdjkj"]
 size = Vector3(60, 2, 60)
@@ -65,3 +66,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271155, -5.58707)
 
 [node name="PowerUp2" parent="." instance=ExtResource("3_52n7x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75731, 0.271155, -5.58707)
+
+[node name="BasicEnemy" parent="." instance=ExtResource("3_sm4vr")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -14.2094)

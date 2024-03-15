@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://8lwga80qie8l"]
 
-[ext_resource type="Script" path="res://_Scenes/Player/player.gd" id="1_0npxq"]
+[ext_resource type="Script" path="res://_Scenes/Characters/Player/player.gd" id="1_0npxq"]
 [ext_resource type="PackedScene" uid="uid://bj3n02g7ydtts" path="res://_Scenes/Shooter/shooter.tscn" id="1_g2fjg"]
 [ext_resource type="PackedScene" uid="uid://ffe8bjjg3xuf" path="res://Assets/Plane.glb" id="1_qxloq"]
 [ext_resource type="PackedScene" uid="uid://ckpffkeelu4ib" path="res://_Scenes/Shooter/bullet_spawn.tscn" id="3_mvets"]

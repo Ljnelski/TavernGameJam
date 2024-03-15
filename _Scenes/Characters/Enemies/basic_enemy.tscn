@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://0pj142for13"]
+
+[ext_resource type="Script" path="res://_Scenes/Characters/Enemies/state_machine.gd" id="1_qkris"]
+[ext_resource type="PackedScene" uid="uid://bj3n02g7ydtts" path="res://_Scenes/Shooter/shooter.tscn" id="1_r8x75"]
+[ext_resource type="Script" path="res://_Scenes/Characters/Enemies/enemy_shooter.gd" id="2_r6sp7"]
+[ext_resource type="Script" path="res://_Scenes/Characters/Enemies/enemy_chaser.gd" id="3_0n6t5"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_xjwiu"]
+size = Vector3(1, 1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3fynu"]
+
+[node name="BasicEnemy" type="CharacterBody3D"]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.321734, 0)
+mesh = SubResource("PrismMesh_xjwiu")
+skeleton = NodePath("../..")
+
+[node name="Shooter" parent="Pivot" instance=ExtResource("1_r8x75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254947, -0.589701)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("inital_state")]
+script = ExtResource("1_qkris")
+inital_state = NodePath("Shooter")
+
+[node name="Shooter" type="Node" parent="StateMachine"]
+script = ExtResource("2_r6sp7")
+
+[node name="Chaser" type="Node" parent="StateMachine"]
+script = ExtResource("3_0n6t5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3fynu")

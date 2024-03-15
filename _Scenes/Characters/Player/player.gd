@@ -6,6 +6,9 @@ extends CharacterBody3D
 
 var target_velocity = Vector3.ZERO;
 
+func _ready():
+	shooter.can_shoot = true;
+
 func _physics_process(delta):
 	# We create a local variable to store the input direction.
 	var direction = Vector3.ZERO
