@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj3n02g7ydtts"]
+
+[ext_resource type="Script" path="res://_Scenes/Shooter/shooter.gd" id="1_r8d3k"]
+[ext_resource type="Resource" uid="uid://dn33o21pukrdh" path="res://_Scenes/Shooter/player_shooter_stats.tres" id="2_u0k88"]
+
+[node name="Shooter" type="Node3D"]
+script = ExtResource("1_r8d3k")
+stats = ExtResource("2_u0k88")
