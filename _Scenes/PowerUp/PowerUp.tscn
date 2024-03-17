@@ -32,6 +32,7 @@ power_up_stats = SubResource("Resource_qp4pm")
 mesh = SubResource("SphereMesh_hlmp8")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_5ydme")

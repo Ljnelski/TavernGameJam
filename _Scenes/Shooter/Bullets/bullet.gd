@@ -1,4 +1,4 @@
-extends Node3D
+class_name Bullet extends Node3D
 
 var speed: float = 14.0;
 var damage: float;

@@ -1,24 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://0pj142for13"]
+[gd_scene load_steps=10 format=3 uid="uid://0pj142for13"]
 
 [ext_resource type="PackedScene" uid="uid://mksocmmmotuc" path="res://Assets/Enemy.glb" id="1_j5mqg"]
 [ext_resource type="Script" path="res://_Scenes/Characters/Enemies/state_machine.gd" id="1_qkris"]
 [ext_resource type="PackedScene" uid="uid://bj3n02g7ydtts" path="res://_Scenes/Shooter/shooter.tscn" id="1_r8x75"]
 [ext_resource type="Script" path="res://_Scenes/Characters/Enemies/enemy_shooter.gd" id="2_r6sp7"]
 [ext_resource type="Script" path="res://_Scenes/Characters/Enemies/enemy_chaser.gd" id="3_0n6t5"]
+[ext_resource type="PackedScene" uid="uid://b8u613u2d0hvv" path="res://_Scenes/Shooter/Bullets/EnemyBullet.tscn" id="3_dgn1d"]
+[ext_resource type="PackedScene" uid="uid://bh8hiktxbagkl" path="res://_Scenes/Characters/Health.tscn" id="7_jnh6f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b85rb"]
+size = Vector3(0.972, 1.524, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3fynu"]
+size = Vector3(1, 0.685059, 1)
 
 [node name="BasicEnemy" type="CharacterBody3D"]
-
-[node name="Pivot" type="Node3D" parent="."]
-
-[node name="Enemy" parent="Pivot" instance=ExtResource("1_j5mqg")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.304373, 0)
-
-[node name="Gun" type="Node3D" parent="Pivot"]
-
-[node name="Shooter" parent="Pivot/Gun" instance=ExtResource("1_r8x75")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.173541, -0.482041)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00146461, 0.00560367, -0.000132084)
+collision_layer = 0
+collision_mask = 4
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("inital_state")]
 script = ExtResource("1_qkris")
@@ -30,5 +29,28 @@ script = ExtResource("2_r6sp7")
 [node name="Chaser" type="Node" parent="StateMachine"]
 script = ExtResource("3_0n6t5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Enemy" parent="Pivot" instance=ExtResource("1_j5mqg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.304373, 0)
+
+[node name="Gun" type="Node3D" parent="Pivot"]
+
+[node name="Shooter" parent="Pivot/Gun" instance=ExtResource("1_r8x75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000972986, 0.129577, -0.481806)
+bullet = ExtResource("3_dgn1d")
+
+[node name="Hitbox" type="Area3D" parent="Pivot"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262, 0)
+shape = SubResource("BoxShape3D_b85rb")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.157471, 0)
 shape = SubResource("BoxShape3D_3fynu")
+
+[node name="Health" parent="." node_paths=PackedStringArray("hit_box") instance=ExtResource("7_jnh6f")]
+hit_box = NodePath("../Pivot/Hitbox")
