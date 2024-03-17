@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://b4kwhjjvmkh1k"]
+
+[ext_resource type="Shader" uid="uid://l12bvvuftijb" path="res://Shaders/DimensionShader.tres" id="1_pspox"]
+[ext_resource type="Texture2D" uid="uid://o61oh1m5aq2h" path="res://Assets/Enemy_Plane_256_Color.png" id="2_wskwl"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_62f4f"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f1fua"]
+width = 256
+height = 256
+in_3d_space = true
+seamless = true
+noise = SubResource("FastNoiseLite_62f4f")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pspox")
+shader_parameter/IsInDimension = false
+shader_parameter/NosieColor = Color(0.686275, 0.498039, 0.784314, 1)
+shader_parameter/BaseTexture = ExtResource("2_wskwl")
+shader_parameter/OverlayTexture = SubResource("NoiseTexture2D_f1fua")
