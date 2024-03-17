@@ -1,14 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://cn3gkv5bfqxmp"]
 
 [ext_resource type="PackedScene" uid="uid://8lwga80qie8l" path="res://_Scenes/Characters/Player/player.tscn" id="1_6it2u"]
+[ext_resource type="Material" uid="uid://dk5bwymffdxym" path="res://Shaders/WaterMaterial.tres" id="1_mj6ag"]
 [ext_resource type="PackedScene" uid="uid://cwdsqj0soiio2" path="res://_Scenes/PowerUp/PowerUp.tscn" id="3_52n7x"]
 [ext_resource type="PackedScene" uid="uid://0pj142for13" path="res://_Scenes/Characters/Enemies/basic_enemy.tscn" id="3_sm4vr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gdjkj"]
 size = Vector3(60, 2, 60)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_naj57"]
-albedo_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bokjb"]
 size = Vector3(60, 2, 60)
@@ -28,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_gdjkj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-material_override = SubResource("StandardMaterial3D_naj57")
+material_override = ExtResource("1_mj6ag")
 mesh = SubResource("BoxMesh_bokjb")
 
 [node name="WorldBoundary" type="StaticBody3D" parent="."]
