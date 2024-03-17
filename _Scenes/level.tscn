@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn3gkv5bfqxmp"]
+[gd_scene load_steps=5 format=3 uid="uid://cn3gkv5bfqxmp"]
 
 [ext_resource type="PackedScene" uid="uid://8lwga80qie8l" path="res://_Scenes/Characters/Player/player.tscn" id="1_6it2u"]
+[ext_resource type="PackedScene" uid="uid://dqwodb465o130" path="res://_Scenes/Enviroment/LevelFloor.tscn" id="1_c04w3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_67m1u"]
 size = Vector3(60, 60, 1)
@@ -10,18 +11,7 @@ size = Vector3(1, 60, 60)
 
 [node name="Main" type="Node"]
 
-[node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("BoxShape3D_gdjkj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-material_override = ExtResource("1_mj6ag")
-mesh = SubResource("BoxMesh_bokjb")
-
 [node name="LevelFloor" parent="." instance=ExtResource("1_c04w3")]
-
 
 [node name="WorldBoundary" type="StaticBody3D" parent="."]
 collision_layer = 2
@@ -56,12 +46,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
 
 [node name="Player" parent="." instance=ExtResource("1_6it2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.145111, 0.138733, 0.101219)
-
-[node name="PowerUp" parent="." instance=ExtResource("3_52n7x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271155, -5.58707)
-
-[node name="PowerUp2" parent="." instance=ExtResource("3_52n7x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75731, 0.271155, -5.58707)
-
-[node name="BasicEnemy" parent="." instance=ExtResource("3_sm4vr")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.376805, -5.09599)
