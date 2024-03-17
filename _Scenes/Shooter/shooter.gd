@@ -2,8 +2,7 @@ extends Node3D
 
 @export var stats: ShooterStats;
 @export var shooter_pattern : Node3D;
-
-var bullet = load("res://_Scenes/Shooter/Bullets/Bullet.tscn");
+@export var bullet : PackedScene;
 var instance;
 var bullet_spawns : Array[Node];
 
@@ -17,6 +16,12 @@ var bullet_count;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	# Check if bullet has reference
+	if !bullet:
+		push_error("Shooter ERROR: No bullet scene assigned");
+		process_mode = Node.PROCESS_MODE_DISABLED;
+		return;
+	
 	# set up spawn locations
 	if shooter_pattern == null:
 		bullet_spawns.append(owner)

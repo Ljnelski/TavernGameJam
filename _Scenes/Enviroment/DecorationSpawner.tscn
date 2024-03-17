@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://buvbw5ewe7m06"]
+
+[node name="DecorationSpawner" type="Node3D"]

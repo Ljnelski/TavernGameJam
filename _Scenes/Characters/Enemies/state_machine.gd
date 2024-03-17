@@ -8,14 +8,18 @@ var current_state : State;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	# get states	
 	for node in get_children():
 		if node is State:
 			states[node.name.to_lower()] = node;
-			node.Transitioned.connect(on_child_transition);
+			node.transition.connect(on_child_transition);
 	
-	current_state = inital_state;
+	if inital_state:
+		current_state = inital_state;	
+		current_state.enter();
 	
-	current_state.enter();
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
