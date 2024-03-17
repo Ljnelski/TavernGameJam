@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyp8qddlajutj"]
+
+[ext_resource type="Script" path="res://_Scenes/dimension_manager.gd" id="1_6g3hk"]
+
+[node name="DimensionManager" type="Node"]
+script = ExtResource("1_6g3hk")

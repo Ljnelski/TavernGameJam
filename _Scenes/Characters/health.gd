@@ -8,17 +8,20 @@ signal death;
 
 var current_health
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters the scene tree for the firt time.
 func _ready():
 	if hit_box:
-		hit_box.body_entered.connect(on_body_entered);
+		print("connecting on_body_entered");
+		hit_box.area_entered.connect(on_hitbox_area_entered);
 	else:
 		push_warning("heath WARNING: health does not have a hit box assigned");
 
-func on_body_entered(body):
-	print(body.name);
+func on_hitbox_area_entered(area):
+	if area is Bullet:
+		on_hurt(area.damage);
 
-func on_hurt(body):
+func on_hurt(damage):
+	print("taking %d damage" % damage);
 	hurt.emit(current_health)
 
 func on_death():

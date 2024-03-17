@@ -1,15 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://8lwga80qie8l"]
+[gd_scene load_steps=9 format=3 uid="uid://8lwga80qie8l"]
 
 [ext_resource type="Script" path="res://_Scenes/Characters/Player/player.gd" id="1_0npxq"]
 [ext_resource type="PackedScene" uid="uid://bj3n02g7ydtts" path="res://_Scenes/Shooter/shooter.tscn" id="1_g2fjg"]
 [ext_resource type="PackedScene" uid="uid://ffe8bjjg3xuf" path="res://Assets/Plane.glb" id="1_qxloq"]
 [ext_resource type="PackedScene" uid="uid://ckpffkeelu4ib" path="res://_Scenes/Shooter/bullet_spawn.tscn" id="3_mvets"]
+[ext_resource type="PackedScene" uid="uid://cyk7jhudadm20" path="res://_Scenes/Shooter/Bullets/Bullet.tscn" id="4_4gd6i"]
 [ext_resource type="PackedScene" uid="uid://bh8hiktxbagkl" path="res://_Scenes/Characters/Health.tscn" id="5_5f5pd"]
 [ext_resource type="Shape3D" uid="uid://c5sc7e8uetvmp" path="res://_Scenes/Characters/Player/player_collider.tres" id="5_gm0cj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_onsxl"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 2
 script = ExtResource("1_0npxq")
 
 [node name="Pivot" type="Node3D" parent="."]
@@ -21,6 +23,7 @@ script = ExtResource("1_0npxq")
 [node name="Shooter" parent="Pivot/Gun" node_paths=PackedStringArray("shooter_pattern") instance=ExtResource("1_g2fjg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.984159)
 shooter_pattern = NodePath("../Pattern")
+bullet = ExtResource("4_4gd6i")
 
 [node name="Pattern" type="Node3D" parent="Pivot/Gun"]
 
@@ -40,6 +43,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.483, 0.338, -0.108)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4829, 0.338196, -0.107982)
 
 [node name="Hitbox" type="Area3D" parent="Pivot"]
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03459, 0.503302, 0.127057)
