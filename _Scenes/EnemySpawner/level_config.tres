@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemySpawnerSpawnConfig" load_steps=2 format=3 uid="uid://0wciqwhps8wh"]
+
+[ext_resource type="Script" path="res://_Scenes/EnemySpawner/enemy_spawner_spawn_config.gd" id="1_0hbso"]
+
+[resource]
+script = ExtResource("1_0hbso")
+world_width = 120.0
+spawn_count = 2.0
+spawn_padding = 40.0

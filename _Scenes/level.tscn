@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn3gkv5bfqxmp"]
+[gd_scene load_steps=8 format=3 uid="uid://cn3gkv5bfqxmp"]
 
 [ext_resource type="PackedScene" uid="uid://8lwga80qie8l" path="res://_Scenes/Characters/Player/player.tscn" id="1_6it2u"]
 [ext_resource type="PackedScene" uid="uid://dqwodb465o130" path="res://_Scenes/Enviroment/LevelFloor.tscn" id="1_c04w3"]
 [ext_resource type="PackedScene" uid="uid://cqjxpx1ebnwyf" path="res://_Scenes/EnemySpawner/EnemySpawner.tscn" id="3_oupbh"]
+[ext_resource type="Resource" uid="uid://0wciqwhps8wh" path="res://_Scenes/EnemySpawner/level_config.tres" id="4_7wcfd"]
+[ext_resource type="PackedScene" uid="uid://mksocmmmotuc" path="res://Assets/Enemy.glb" id="4_wgmce"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_67m1u"]
 size = Vector3(60, 60, 1)
@@ -13,6 +15,7 @@ size = Vector3(1, 60, 60)
 [node name="Main" type="Node"]
 
 [node name="LevelFloor" parent="." instance=ExtResource("1_c04w3")]
+visible = false
 
 [node name="WorldBoundary" type="StaticBody3D" parent="."]
 collision_layer = 2
@@ -48,7 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
 [node name="Player" parent="." instance=ExtResource("1_6it2u")]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_oupbh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
-world_width = 120.0
-spawn_count = 3.0
-spawn_padding = 40.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.1095)
+config = ExtResource("4_7wcfd")
+enemy = ExtResource("4_wgmce")
